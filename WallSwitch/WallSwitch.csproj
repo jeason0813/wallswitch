@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{258A45C4-2116-4522-BE10-1CAC045ED338}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WallSwitch</RootNamespace>
+    <AssemblyName>WallSwitch</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\HtmlAgilityPack.1.4.0\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.103.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.103\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.103.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.103\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.103.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.103\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="ImageFilters\Operator.cs" />
+    <Compile Include="Images.cs" />
+    <Compile Include="Rendering\ColorEffect.cs" />
+    <Compile Include="Rendering\ColorSample.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Rendering\ColorSample.Designer.cs">
+      <DependentUpon>ColorSample.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rendering\CompressedImage.cs" />
+    <Compile Include="Data.cs">
+      <DependentUpon>Data.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="Rendering\DataEx.cs" />
+    <Compile Include="Database\DataRowEx.cs" />
+    <Compile Include="Rendering\EdgeMode.cs" />
+    <Compile Include="Res.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsStore\CsvReader.cs" />
+    <Compile Include="SettingsStore\CsvWriter.cs" />
+    <Compile Include="Themes\FeedDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Themes\FeedDialog.Designer.cs">
+      <DependentUpon>FeedDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Themes\FeedLoader.cs" />
+    <Compile Include="History\HistoryItem.cs" />
+    <Compile Include="History\HistoryList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="History\HistoryList.Designer.cs">
+      <DependentUpon>HistoryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotKeys\HotKey.cs" />
+    <Compile Include="HotKeys\HotKeySettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotKeys\HotKeySettings.Designer.cs">
+      <DependentUpon>HotKeySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotKeys\HotKeyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rendering\IconReader.cs" />
+    <Compile Include="Themes\ImageCache.cs" />
+    <Compile Include="ImageFilters\ConditionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageFilters\ConditionControl.Designer.cs">
+      <DependentUpon>ConditionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImageFilters\FilterCondition.cs" />
+    <Compile Include="ImageFilters\FilterConditionType.cs" />
+    <Compile Include="ImageFilters\ImageFilter.cs" />
+    <Compile Include="ImageFilters\PathNameCondition.cs" />
+    <Compile Include="ImageFilters\RatingCondition.cs" />
+    <Compile Include="ImageFilters\RatingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ImageFilters\RatingControl.Designer.cs">
+      <DependentUpon>RatingControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rendering\ImageFit.cs" />
+    <Compile Include="Rendering\ImageFormatDesc.cs" />
+    <Compile Include="Rendering\ImageLayout.cs" />
+    <Compile Include="Themes\ImageRec.cs" />
+    <Compile Include="Themes\LBItem.cs" />
+    <Compile Include="Themes\Location.cs" />
+    <Compile Include="Themes\LocationBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Themes\LocationBrowser.Designer.cs">
+      <DependentUpon>LocationBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Log.cs" />
+    <Compile Include="Core\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Core\NativeMethods.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Core\PromptDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\PromptDialog.Designer.cs">
+      <DependentUpon>PromptDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingsStore\Settings.cs" />
+    <Compile Include="SettingsStore\SettingsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsStore\SettingsDialog.Designer.cs">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsStore\SettingsException.cs" />
+    <Compile Include="Rendering\SetWallpaper.cs" />
+    <Compile Include="Core\shlobj.cs" />
+    <Compile Include="Database\SQLiteDataReaderEx.cs" />
+    <Compile Include="Themes\SwitchDir.cs" />
+    <Compile Include="Rendering\SwitchThread.cs" />
+    <Compile Include="Core\TagString.cs" />
+    <Compile Include="Themes\TextFilter.cs" />
+    <Compile Include="Themes\Theme.cs" />
+    <Compile Include="Themes\ThemeMode.cs" />
+    <Compile Include="Themes\Period.cs" />
+    <Compile Include="Themes\ThemeOrder.cs" />
+    <Compile Include="SettingsStore\UpdateCheck.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="Core\VStackPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Rendering\WallpaperRenderer.cs" />
+    <Compile Include="Widgets\WidgetInstance.cs" />
+    <Compile Include="Widgets\WidgetLayoutControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Widgets\WidgetLayoutControl.Designer.cs">
+      <DependentUpon>WidgetLayoutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\WidgetManager.cs" />
+    <Compile Include="Widgets\WidgetType.cs" />
+    <Compile Include="Xml.cs" />
+    <EmbeddedResource Include="Core\AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rendering\ColorSample.resx">
+      <DependentUpon>ColorSample.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Themes\FeedDialog.resx">
+      <DependentUpon>FeedDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="History\HistoryList.resx">
+      <DependentUpon>HistoryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HotKeys\HotKeySettings.resx">
+      <DependentUpon>HotKeySettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageFilters\ConditionControl.resx">
+      <DependentUpon>ConditionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageFilters\RatingControl.resx">
+      <DependentUpon>RatingControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Themes\LocationBrowser.resx">
+      <DependentUpon>LocationBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Core\PromptDialog.resx">
+      <DependentUpon>PromptDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Res.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsStore\SettingsDialog.resx">
+      <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Widgets\WidgetLayoutControl.resx">
+      <DependentUpon>WidgetLayoutControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="Data.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Generate.bat" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppIcon.ico" />
+    <None Include="Resources\StarMouseOver0.png" />
+    <None Include="Resources\StarMouseOver1.png" />
+    <None Include="Resources\StarMouseOver0.jpg" />
+    <None Include="Resources\StarUnrated.png" />
+    <None Include="Resources\StarRated1.png" />
+    <None Include="Resources\StarRated0.png" />
+    <None Include="Resources\StarMouseOver.png" />
+    <None Include="Resources\StarM.png" />
+    <None Include="Resources\Star0.png" />
+    <None Include="Resources\Star1.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\MoveDown.png" />
+    <None Include="Resources\MoveUp.png" />
+    <None Include="Resources\Expand1.png" />
+    <None Include="Resources\Expand0.png" />
+    <None Include="Resources\Play.png" />
+    <None Include="Resources\Pause.png" />
+    <None Include="Resources\Prev.png" />
+    <None Include="Resources\Next.png" />
+    <None Include="Resources\AppIcon.png" />
+    <None Include="Resources\AppIcon.ico" />
+    <None Include="Resources\AppIcon2.ico" />
+    <None Include="Resources\RSS.ico" />
+    <None Include="Resources\WallSwitch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WidgetInterface\WallSwitch.WidgetInterface.csproj">
+      <Project>{be06c925-2edd-419f-9655-3ef6be49c809}</Project>
+      <Name>WallSwitch.WidgetInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.YearDayOfYear.Increment" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.103\build\net451\System.Data.SQLite.Core.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
